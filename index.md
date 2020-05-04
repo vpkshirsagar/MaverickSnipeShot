@@ -4,13 +4,6 @@ You can use the [editor on GitHub](https://github.com/vpkshirsagar/MaverickSnipe
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-
-Syntax highlighted code block
-
 # 1.	Motivation:
 500$ parking ticket issued...!! 🥵. If you’ve ever driven a car in New York City, you probably know the drill: The city’s free on-street parking gives a small, temporary benefit to a few lucky drivers. People tend to violate the parking rules creating big problems for everyone else. This unique dataset enlightens the causes and most frequent areas of parking breaches. If we care about cities and urban mobility, we really need to pay some attention to parking. If people are not parking correctly like taking place of two parking places for just one car, park in the handicapped reserved place. Without rationing, parking fills up due to illegal parking, double parking leading to traffic caused by parking search. Hence, parking has to be managed strictly by enforcing laws to prevent such problems. The outcome of the project will help the government plan for proper investment of resources and improve focus on regions where rate of parking violations is more and also concentrate on frequently occurring categories of violations. Also, we can ensure the Parking policy success from the analyzing the dataset further.
 1)Where the rate of traffic rule violation is more i.e. more need of strict actions need to be taken by the traffic police?
@@ -28,7 +21,7 @@ There are four .CSV files, covering Aug 2013-June 2017. The files are roughly or
 
 See the dataset descriptions for exact details. Columns include information about the vehicle ticketed, the ticket issued, location and time.
 
-![Image](DataTable.PNG)
+![Image](DataSample.png)
 
 
 # 3.	Obtaining the Data & Preprocessing
@@ -51,6 +44,20 @@ References for the commands to upload to GCS can be found here.
 
 1. Numbered
 2. List
+
+# 4.	BigQuery
+
+With help of Big Query “Loading data from cloud storage” feature I have created the table in Big Query with auto schema detection option.
+There are multiple options for uploading like
+•	Uploading from Local Storage (Guide).
+•	Uploading from GCS (Guide).
+•	There are multiple other options you can get here.
+
+Loading the data to BigQuery directly from Web UI has some constraints like:
+1) Data should be less than 10 MB.
+2) Total number of rows of data should be less than 16000.
+For my case the data is about 4 GB so, I uploaded the data to GCS first and then moved it to BigQuery from GCS Bucket. If your datasets satisfy the first two conditions then you can directly load the data to BigQuery from WebUI. You can find different options for uploading the data to BigQuery here.
+
 
 **Bold** and _Italic_ and `Code` text
 
