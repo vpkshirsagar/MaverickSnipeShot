@@ -14,6 +14,19 @@ Apart from just these things we can further analyze to get the answers to follow
 Kaggle has so much interesting datasets to work on. I was searching for a large and interesting dataset so that I can put in my knowledge and skills acquired from the course to analyze by querying the Bigdata and visualizing the same. Here you can see the [data](https://www.kaggle.com/new-york-city/nyc-parking-tickets). The NYC Department of Finance collects data on every parking ticket issued in NYC (~10M per year!). This data is made publicly available to aid in ticket resolution and to guide policymakers.
 
 Here is what the data looks like before filtering
+
+```markdown
+Summons Number,Plate ID,Registration State,Plate Type,Issue Date,Violation Code,Vehicle Body Type,Vehicle Make,Issuing Agency,Street Code1,Street Code2,Street Code3,Vehicle Expiration Date,Violation Location,Violation Precinct,Issuer Precinct,Issuer Code,Issuer Command,Issuer Squad,Violation Time,Time First Observed,Violation County,Violation In Front Of Or Opposite,House Number,Street Name,Intersecting Street,Date First Observed,Law Section,Sub Division,Violation Legal Code,Days Parking In Effect    ,From Hours In Effect,To Hours In Effect,Vehicle Color,Unregistered Vehicle?,Vehicle Year,Meter Number,Feet From Curb,Violation Post Code,Violation Description,No Standing or Stopping Violation,Hydrant Violation,Double Parking Violation,Latitude,Longitude,Community Board,Community Council ,Census Tract,BIN,BBL,NTA
+1283294138,GBB9093,NY,PAS,08/04/2013,46,SUBN,AUDI,P,37250,13610,21190,20140831,0033,33,33,921043,0033,0000,0752A,,,F,712,W 175 ST,,0,408,F1,,BBBBBBB,ALL,ALL,GY,0,2013,-,0,,,,,,,,,,,,,
+1283294151,62416MB,NY,COM,08/04/2013,46,VAN,FORD,P,37290,40404,40404,20140430,0033,33,33,921043,0033,0000,1240P,,NY,O,201,W 177 ST,,0,408,C,,BBBBBBB,ALL,ALL,WH,0,2012,-,0,,,,,,,,,,,,,
+1283294163,78755JZ,NY,COM,08/05/2013,46,P-U,CHEVR,P,37030,31190,13610,20140228,0033,33,33,921043,0033,0000,1243P,,NY,O,520,W 163 ST,,0,408,F7,,BBBBBBB,ALL,ALL,,0,0,-,0,,,,,,,,,,,,,
+1283294175,63009MA,NY,COM,08/05/2013,46,VAN,FORD,P,37270,11710,12010,20141031,0033,33,33,921043,0033,0000,0232P,,NY,O,517,W 176 ST,,0,408,F1,,BBBBBBB,ALL,ALL,WH,0,2010,-,0,,,,,,,,,,,,,
+1283294187,91648MC,NY,COM,08/08/2013,41,TRLR,GMC,P,37240,12010,31190,0,0033,33,33,921043,0033,0000,1239P,,NY,F,590,W 174 ST,,0,408,E1,,BBBBBBB,ALL,ALL,BR,0,2012,-,0,,,,,,,,,,,,,
+1283294217,T60DAR,NJ,PAS,08/11/2013,14,P-U,DODGE,P,37250,10495,12010,0,0033,33,33,921043,0033,0000,0617P,,NY,F,525,W 175 ST,,0,408,F1,,BBBBBBB,ALL,ALL,RD,0,0,-,0,,,,,,,,,,,,,
+1283294229,GCR2838,NY,PAS,08/11/2013,14,VAN,,P,37250,12010,31190,20141223,0033,33,33,921043,0033,0000,0741P,,NY,F,551,W 175 ST,,0,408,C,,BBBBBBB,ALL,ALL,GN,0,2011,-,0,,,,,,,,,,,,,
+1283983620,XZ764G,NJ,PAS,08/07/2013,24,DELV,FORD,X,63430,0,0,0,0088,88,976,101079,0976,0000,0425A,,K,F,100,N.PORTLAND AVE,BROOKLYN NY 11206,0,408,E5,,BBBBBBB,ALL,ALL,WHITE,0,0,-,0,,,,,,,,,,,,,
+1283983631,GBH9379,NY,PAS,08/07/2013,24,SDN,TOYOT,X,63430,0,0,20140722,0088,88,976,101079,0976,0000,0437A,,K,F,100,N.PORTLAND AVE,BROOKLYN NY 11206,0,408,D5,,BBBBBBB,ALL,ALL,WHITE,0,2001,-,0,,,,,,,,,,,,,
+``` 
  
 There are four .CSV files, covering Aug 2013-June 2017. The files are roughly organized by fiscal year (July 1 - June 30) with the exception of the initial dataset. I have considered the following features from the dataset.
 
