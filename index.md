@@ -2,8 +2,6 @@
 
 You can use the [editor on GitHub](https://github.com/vpkshirsagar/MaverickSnipeShot/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
 # 1.	Motivation:
 500$ parking ticket issued...!! 🥵. If you’ve ever driven a car in New York City, you probably know the drill: The city’s free on-street parking gives a small, temporary benefit to a few lucky drivers. People tend to violate the parking rules creating big problems for everyone else. This unique dataset enlightens the causes and most frequent areas of parking breaches. If we care about cities and urban mobility, we really need to pay some attention to parking. If people are not parking correctly like taking place of two parking places for just one car, park in the handicapped reserved place. Without rationing, parking fills up due to illegal parking, double parking leading to traffic caused by parking search. Hence, parking has to be managed strictly by enforcing laws to prevent such problems. The outcome of the project will help the government plan for proper investment of resources and improve focus on regions where rate of parking violations is more and also concentrate on frequently occurring categories of violations. Also, we can ensure the Parking policy success from the analyzing the dataset further.
 1)Where the rate of traffic rule violation is more i.e. more need of strict actions need to be taken by the traffic police?
@@ -14,6 +12,8 @@ Apart from just these things we can further analyze to get the answers to follow
 
 # 2.	About the Data
 Kaggle has so much interesting datasets to work on. I was searching for a large and interesting dataset so that I can put in my knowledge and skills acquired from the course to analyze by querying the Bigdata and visualizing the same. Here you can see the data. The NYC Department of Finance collects data on every parking ticket issued in NYC (~10M per year!). This data is made publicly available to aid in ticket resolution and to guide policymakers.
+
+Here is what the data looks like before filtering
  
 There are four .CSV files, covering Aug 2013-June 2017. The files are roughly organized by fiscal year (July 1 - June 30) with the exception of the initial dataset. I have considered the following features from the dataset.
 
@@ -39,12 +39,6 @@ All the four csv files of size 4.0 GB in total are uploaded on the GCS by runnin
 
 References for the commands to upload to GCS can be found here.
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
 # 4.	BigQuery
 
 With help of Big Query “Loading data from cloud storage” feature I have created the table in Big Query with auto schema detection option.
@@ -67,10 +61,6 @@ Data types of the columns
 Data samples in BigQuery Web UI
 
 ![Image](DataSampleinBQ.PNG)
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/vpkshirsagar/MaverickSnipeShot/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
