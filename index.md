@@ -20,6 +20,9 @@ If you read further, you can get to know about the interesting things that can b
 Apart from just these things we can further analyze to get the answers to following questions
 
 ## Header 2
+
+![Image](DataTable.PNG)
+
 ### Header 3
 
 - Bulleted
