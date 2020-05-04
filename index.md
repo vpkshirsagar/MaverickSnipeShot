@@ -29,7 +29,26 @@ See the dataset descriptions for exact details. Columns include information abou
 I directly downloaded the files from the Kaggle and stored in the local machine first.
 
 Feature selection and uploading to GCS
-Each file is of 2 GB approx. Some of the columns are not necessary for the analysis, so ran the python script to extract the useful features only from all the raw data before uploading it to Google cloud storage.
+Each file is of 2 GB approx. Some of the columns are not necessary for the analysis, so ran the following python script to extract the useful features only from all the raw data before uploading it to Google cloud storage.
+
+```markdown
+import os
+import json
+import pandas as pd
+
+add_header = True
+chunksize = 10 ** 5
+my_path = "D:/nyc-parking-tickets/"
+
+for r, d, f in os.walk(my_path):
+    for curr_file in f:
+        print(curr_file)
+        for chunk in pd.read_csv(my_path + curr_file, chunksize=chunksize, usecols = ['Summons Number','Plate ID','Registration State','Issue Date','Violation Code','Vehicle Body Type','Violation Location','Issuer Code','Violation County','Unregistered Vehicle?','Violation Description']):
+            chunk.to_csv("D:/updated-nyc-parking-tickets/" + curr_file,
+                         mode='a', index=False, header=add_header)
+            if add_header:
+                add_header = False
+```
 
 All the four csv files of size 4.0 GB in total are uploaded on the GCS by running the following google command line instruction: 
 
@@ -37,20 +56,20 @@ All the four csv files of size 4.0 GB in total are uploaded on the GCS by runnin
 <p class="hey">gsutil -o GSUtil:parallel_composite_upload_threshold=150M -m cp -r FOLDERNAME/FILENAME gs://BUCKET_PATH</p>
 ```
 
-References for the commands to upload to GCS can be found here.
+References for the commands to upload to GCS can be found [here](https://cloud.google.com/storage/docs/gsutil/commands/cp#synopsis).
 
 # 4.	BigQuery
 
-With help of Big Query “Loading data from cloud storage” feature I have created the table in Big Query with auto schema detection option.
+With help of Big Query “[Loading data from cloud storage](https://cloud.google.com/bigquery/docs/loading-data-cloud-storage#overview)” feature I have created the table in Big Query with auto schema detection option.
 There are multiple options for uploading like
--	Uploading from Local Storage (Guide).
--	Uploading from GCS (Guide).
--	There are multiple other options you can get here.
+-	Uploading from Local Storage ([Guide](https://cloud.google.com/bigquery/docs/loading-data-cloud-storage#overview)).
+-	Uploading from GCS ([Guide](https://cloud.google.com/bigquery/docs/loading-data-local#overview)).
+-	There are multiple other options you can get [here](https://cloud.google.com/bigquery/docs/loading-data-local#overview).
 
 Loading the data to BigQuery directly from Web UI has some constraints like:
 1) Data should be less than 10 MB.
 2) Total number of rows of data should be less than 16000.
-For my case the data is about 4 GB so, I uploaded the data to GCS first and then moved it to BigQuery from GCS Bucket. If your datasets satisfy the first two conditions then you can directly load the data to BigQuery from WebUI. You can find different options for uploading the data to BigQuery here.
+For my case the data is about 4 GB so, I uploaded the data to GCS first and then moved it to BigQuery from GCS Bucket. If your datasets satisfy the first two conditions then you can directly load the data to BigQuery from WebUI. You can find different options for uploading the data to BigQuery [here](https://cloud.google.com/bigquery/docs/loading-data#overview).
 
 Here are some of the snapshots how the dataset is seen on the BigQuery WebUI.
 
