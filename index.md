@@ -43,9 +43,9 @@ References for the commands to upload to GCS can be found here.
 
 With help of Big Query “Loading data from cloud storage” feature I have created the table in Big Query with auto schema detection option.
 There are multiple options for uploading like
-•	Uploading from Local Storage (Guide).
-•	Uploading from GCS (Guide).
-•	There are multiple other options you can get here.
+-	Uploading from Local Storage (Guide).
+-	Uploading from GCS (Guide).
+-	There are multiple other options you can get here.
 
 Loading the data to BigQuery directly from Web UI has some constraints like:
 1) Data should be less than 10 MB.
