@@ -58,13 +58,15 @@ Loading the data to BigQuery directly from Web UI has some constraints like:
 2) Total number of rows of data should be less than 16000.
 For my case the data is about 4 GB so, I uploaded the data to GCS first and then moved it to BigQuery from GCS Bucket. If your datasets satisfy the first two conditions then you can directly load the data to BigQuery from WebUI. You can find different options for uploading the data to BigQuery here.
 
+Here are some of the snapshots how the dataset is seen on the BigQuery WebUI.
 
-**Bold** and _Italic_ and `Code` text
+Data types of the columns
 
-[Link](url) and ![Image](DataTable.PNG)
+![Image](TableStructure.PNG)
 
+Data samples in BigQuery Web UI
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+![Image](DataSampleinBQ.PNG)
 
 ### Jekyll Themes
 
