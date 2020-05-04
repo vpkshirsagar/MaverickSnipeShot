@@ -30,7 +30,7 @@ Apart from just these things we can further analyze to get the answers to follow
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+[Link](url) and ![Image](DataTable.PNG)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
