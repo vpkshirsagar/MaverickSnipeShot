@@ -11,7 +11,7 @@ If you read further, you can get to know about the interesting things that can b
 Apart from just these things we can further analyze to get the answers to following questions
 
 # 2.	About the Data
-Kaggle has so much interesting datasets to work on. I was searching for a large and interesting dataset so that I can put in my knowledge and skills acquired from the course to analyze by querying the Bigdata and visualizing the same. Here you can see the data. The NYC Department of Finance collects data on every parking ticket issued in NYC (~10M per year!). This data is made publicly available to aid in ticket resolution and to guide policymakers.
+Kaggle has so much interesting datasets to work on. I was searching for a large and interesting dataset so that I can put in my knowledge and skills acquired from the course to analyze by querying the Bigdata and visualizing the same. Here you can see the [data](https://www.kaggle.com/new-york-city/nyc-parking-tickets). The NYC Department of Finance collects data on every parking ticket issued in NYC (~10M per year!). This data is made publicly available to aid in ticket resolution and to guide policymakers.
 
 Here is what the data looks like before filtering
  
