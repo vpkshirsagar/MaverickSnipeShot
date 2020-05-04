@@ -19,11 +19,30 @@ Syntax highlighted code block
 If you read further, you can get to know about the interesting things that can be analyzed from the dataset like what kind of parking violations would cost you more or less? Also, you can identify the regions where you should be more careful while violating the rules even for a couple of minutes. 
 Apart from just these things we can further analyze to get the answers to following questions
 
-## Header 2
+## 2.	About the Data
+Kaggle has so much interesting datasets to work on. I was searching for a large and interesting dataset so that I can put in my knowledge and skills acquired from the course to analyze by querying the Bigdata and visualizing the same. Here you can see the data. The NYC Department of Finance collects data on every parking ticket issued in NYC (~10M per year!). This data is made publicly available to aid in ticket resolution and to guide policymakers.
+ 
+There are four .CSV files, covering Aug 2013-June 2017. The files are roughly organized by fiscal year (July 1 - June 30) with the exception of the initial dataset. I have considered the following features from the dataset.
 
 ![Image](DataTable.PNG)
 
-### Header 3
+See the dataset descriptions for exact details. Columns include information about the vehicle ticketed, the ticket issued, location and time.
+
+![Image](DataTable.PNG)
+
+
+### Obtaining the Data & Preprocessing
+
+I directly downloaded the files from the Kaggle and stored in the local machine first.
+
+Feature selection and uploading to GCS
+Each file is of 2 GB approx. Some of the columns are not necessary for the analysis, so ran the python script to extract the useful features only from all the raw data before uploading it to Google cloud storage.
+
+All the four csv files of size 4.0 GB in total are uploaded on the GCS by running the following google command line instruction: 
+
+<p class="hey">gsutil -o GSUtil:parallel_composite_upload_threshold=150M -m cp -r FOLDERNAME/FILENAME gs://BUCKET_PATH</p>
+
+References for the commands to upload to GCS can be found here.
 
 - Bulleted
 - List
