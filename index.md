@@ -151,21 +151,23 @@ Also most of the data was missing so making analysis based in that was bit compl
 
 ### Future Work
 1] By using this data, the analysis which I made is pretty amazing. It almost answers all the questions I was aiming for but it can still be more precise and accurate if we get more data.
+<br/>
 2] Also the analysis of location was according to the states and counties which is a lot of help for the Government officers. But for police officers it will be really good if the locations are detailed like co-ordinates on Google Maps. It can be added in future which will be really helpfull for the officers.
+<br/>
 3] Also the analysis was on a superficial level. It can be more detailed if there is more data and more information about the officers working and what are their revieews about the work.
 
 ### Why Big Query ? (🤔)
 Big Query provides really usefull features for such analysis. It also has a good set of optimzation features which is really needed ton handle the Big data.
 
-Some of those featurres which mainly attracts me towards Big Query are:
-1]BigQuery is hepful for calculating metrics/stats/aggregates over a big data.
-2]It has a really faster and user-friendly Web-UI which is easy to learn and use.
-3]Querying was really fun on BigQuery Web UI.
-4]Loading such amount of data to BigQuery is rather easier than others as there re many ways.
-5]More importantly, it is easy to integrate with the Google's Data Studio.
-6]Also we can get live data so, it is really amazing for visualization of streaming data.
-7]Mainly, it supports SQL which is easy and friendly for handling complex queries on data.
-8]It supports the UDFs , so it was easy for me to use the UDF in JS to have my complex works.
+Some of those featurres which mainly attracts me towards Big Query are:<br/>
+1]BigQuery is hepful for calculating metrics/stats/aggregates over a big data.<br/>
+2]It has a really faster and user-friendly Web-UI which is easy to learn and use.<br/>
+3]Querying was really fun on BigQuery Web UI.<br/>
+4]Loading such amount of data to BigQuery is rather easier than others as there re many ways.<br/>
+5]More importantly, it is easy to integrate with the Google's Data Studio.<br/>
+6]Also we can get live data so, it is really amazing for visualization of streaming data.<br/>
+7]Mainly, it supports SQL which is easy and friendly for handling complex queries on data.<br/>
+8]It supports the UDFs , so it was easy for me to use the UDF in JS to have my complex works.<br/>
 
 ### Query Execution Details
 
