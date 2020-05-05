@@ -169,6 +169,16 @@ Some of those featurres which mainly attracts me towards Big Query are:
 
 ## Query Execution Details
 
+Below is the execution details for some of the complex queries I used.
+
+1. Table 1[Vehicle body type zonal distribution]
+![Image](Execution1.PNG)
+
+2. Table 2[Per Person total violation zone calculation]
+![Image](Execution2.PNG)
+
+3. Table 3[types of top 3 violations in violation counties according to number of violations]
+![Image](Execution 3.PNG)
 
 
 ### Support or Contact
