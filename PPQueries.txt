@@ -1,0 +1,170 @@
+-------Total # Tickets
+
+SELECT CAST((count(Summons_Number) / 1000) AS INT64) as Total_count
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+
+-------Total # tickets issued in Aug 2013
+
+SELECT count(*) as Total_2013
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+where Issue_Date LIKE '%2013'
+
+-------Total # tickets issued in Aug 2014
+
+SELECT count(*) as Total_2014
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+where Issue_Date LIKE '%2014'
+
+-------Total # tickets issued in 2015
+
+SELECT count(*) as Total_2015
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+where Issue_Date LIKE '%2015'
+
+-------Total # tickets issued in 2016
+
+SELECT count(*) as Total_2016
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+where Issue_Date LIKE '%2016'
+
+-------Total # tickets issued in 2017
+
+SELECT count(*) as Total_2017
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+where Issue_Date LIKE '%2017'
+
+-------State With most number of violations
+
+With Count_per_state as
+(SELECT Registration_State , count(*) as Per_State
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+group by Registration_State)
+
+Select Registration_State from Count_per_state
+Where Per_State = (select max(Per_State) from Count_per_state)
+
+-------Per State number of violations 			(PIE Chart)
+
+SELECT Registration_State , count(*) as Per_State
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+group by Registration_State)
+
+-------Per Violation_Code number of tickets issued 			(Bar Chart)
+(SELECT Violation_Code , count(*) as Per_Violation
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+group by Violation_Code)
+
+-------Violation code and description 					(Table)
+
+SELECT Distinct Violation_Code , Violation_Description as Per_Violation
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+
+-------Top counties with violation 					(Table)
+
+SELECT Violation_County, count(Violation_County) as total_violation
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+group by Violation_County order by total_violation DESC Limit 5
+
+-------Top 2 violations per county					(Table)
+With violation_per_county as (SELECT Violation_County,Violation_Description, count(*) as total_violation
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+where Violation_Description is not null and Violation_County is not null
+group by 1,2),
+violation_rank as (select Violation_County, Violation_Description,total_violation, rank() over(partition by Violation_County order by total_violation desc) as rank
+from violation_per_county
+order by 1 desc)
+select * from violation_rank
+where rank < 3
+
+-- for getting bak from the saved table
+SELECT * FROM `cs-686-dpc-269721.perosnal_project.results_per_county_top2_violations` order by Violation_County,rank,Violation_Description
+
+-------Per Person total violation zone calculation  			(Pie chart)
+CREATE TEMP FUNCTION checkZone(x FLOAT64)
+RETURNS INT64
+LANGUAGE js AS """
+  if(x > 30)
+    return 2;
+  if(x > 5)
+    return 1;
+  else 
+    return 0;
+""";
+
+With per_person as (Select Plate_ID,count(Plate_ID) as total_violation_per_person
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main`
+where Plate_ID <> 'BLANKPLATE' 
+group by Plate_ID order by total_violation_per_person DESC),
+
+zone_wise as (select Plate_ID ,checkZone(total_violation_per_person) as Zone from per_person)
+
+select CASE WHEN zone = 2 THEN 'RED'
+WHEN zone = 1 THEN 'ORANGE'
+ELSE 'GREEN'
+END AS Zone,count(Zone) as Per_zone
+from zone_wise
+group by Zone LIMIT 100; 
+
+-------Vehicle body type zonal distribution 
+CREATE TEMP FUNCTION
+  check_zone(params ARRAY<INT64>)
+  RETURNS INT64
+  LANGUAGE js AS """
+  if(params.length >1)
+    return 1
+  else 
+    return 0;
+""";
+
+
+With ext_data as 
+(SELECT Vehicle_Body_Type, split(Issue_Date,'/')[offset(0)] as month,split(Issue_Date,'/')[offset(2)] as year
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main` 
+where split(Issue_Date,'/')[offset(2)] in ('2013','2014','2015','2016','2017') and Vehicle_Body_Type is not null),
+
+Vehicle_Body_Type_counts as (SELECT Vehicle_Body_Type , count(*) as Vehicle_Body_Type_count, month, year
+FROM ext_data
+group by Vehicle_Body_Type,month,year order by year, month),
+
+data as(SELECT Vehicle_Body_Type, ARRAY_AGG(Vehicle_Body_Type_count ORDER BY month) AS count_array, year FROM 
+
+(SELECT Vehicle_Body_Type , count(*) as Vehicle_Body_Type_count, month, year
+FROM Vehicle_Body_Type_counts
+group by month, year, Vehicle_Body_Type order by Vehicle_Body_Type, year, month)
+
+group by year,Vehicle_Body_Type order by year),
+
+zonal_distribution as (SELECT *
+FROM (SELECT Vehicle_Body_Type,year, check_zone(count_array) as zone FROM data))
+
+select year,zone,count(zone) as per_zone
+from zonal_distribution
+group by year,zone
+order by year,zone
+
+-- to get from the table
+
+SELECT * FROM `cs-686-dpc-269721.perosnal_project.results_body_type_per_zone` LIMIT 1000
+
+-------Per year per state violation count 
+
+With ext_data as 
+(select Registration_State,split(Issue_Date,'/')[offset(2)] as year,count(*) as per_state
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main` 
+group by year,Registration_State order by year,Registration_State)
+
+select Registration_State,year,per_state 
+from ext_data
+where Registration_State IN (
+select Registration_State
+FROM `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main` 
+group by Registration_State order by count(Registration_State) DESC Limit 5
+)
+and year in ('2013','2014','2015','2016','2017')
+order by year,per_state,Registration_State
+
+--getting from the table again
+SELECT * FROM `cs-686-dpc-269721.perosnal_project.results_per_year_per_state`
+ 
+
+
