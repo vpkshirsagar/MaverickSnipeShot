@@ -156,7 +156,7 @@ Also most of the data was missing so making analysis based in that was bit compl
 <br/>
 3] Also the analysis was on a superficial level. It can be more detailed if there is more data and more information about the officers working and what are their revieews about the work.
 
-### Why Big Query ? (🤔)[Reference](https://cloud.google.com/bigquery/)
+### Why Big Query ? (🤔) 
 Big Query provides really usefull features for such analysis. It also has a good set of optimzation features which is really needed ton handle the Big data.
 
 Some of those featurres which mainly attracts me towards Big Query are:<br/>
@@ -168,6 +168,8 @@ Some of those featurres which mainly attracts me towards Big Query are:<br/>
 6]Also we can get live data so, it is really amazing for visualization of streaming data.<br/>
 7]Mainly, it supports SQL which is easy and friendly for handling complex queries on data.<br/>
 8]It supports the UDFs , so it was easy for me to use the UDF in JS to have my complex works.<br/>
+
+[See for more Details](https://cloud.google.com/bigquery/)
 
 ### Query Execution Details
 
