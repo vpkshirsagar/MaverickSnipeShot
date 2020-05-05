@@ -104,6 +104,8 @@ This is how my dashboard looks like after analyzing the dataset using BigQuery.
 
 
 ## Analytics
+Analysis dashboard with the help of Google's Data Studio and Big Queries as back0end for analysis.
+<iframe width="600" height="650" src="https://datastudio.google.com/embed/reporting/75878ddf-96a5-4fcf-998e-8a1d8c47d8c5/page/qlD" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 
 ### Analysis of data
@@ -183,4 +185,4 @@ Below is the execution details for some of the complex queries I used.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[New york City Parking tikcets violation is analyzed by @Vaishnav Kshirsagar](https://github.com/vpkshirsagar/PersonalProject) and I’ll help you sort it out.
