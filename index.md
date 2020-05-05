@@ -86,6 +86,8 @@ For my case the data is about 4 GB so, I uploaded the data to GCS first and then
 
 Here are some of the snapshots how the dataset is seen on the BigQuery WebUI.
 
+I added all the data from the CSV files into a single BigQuery table called `cs-686-dpc-269721.perosnal_project.parking_tickets_info_main` 
+
 Data types of the columns
 
 ![Image](TableStructure.PNG)
@@ -93,6 +95,81 @@ Data types of the columns
 Data samples in BigQuery Web UI
 
 ![Image](DataSampleinBQ.PNG)
+
+I am using [Google's Data Studio](https://datastudio.google.com/u/0/navigation/) for binding BigQuery and UI.
+
+This is how my dashboard looks like after analyzing the dataset using BigQuery.
+
+![Image](DataSampleinBQ.PNG)
+
+
+## Analytics
+
+
+### Analysis of data
+
+	After creating the tables with the dataset, I queried and visualized the data using BIgQuery Web UI and selected few columns for the analysis of the data.
+	
+There are total of 10 charts or representations of different analysis I have made from the data.
+1] It further has more subsections to show the total number of parking violations in different fields.
+	i] It shows the total number of parking tickets issued in the five years 2013 to 2017.  
+	ii] It shows the total number of parking tickets issued in the year 2013. 
+	iii] It shows the total number of parking tickets issued in the year 2014.
+	iv] It shows the total number of parking tickets issued in the year 2015.
+	v] It shows the total number of parking tickets issued in the year 2016.
+	vi] It shows the total number of parking tickets issued in the year 2017.
+	
+2] It shows the bar chart of tickets issued per violation type. Each violation type is represented by distinct violation code.	
+
+3] This is the support table for the table 2] to show the meanings of each violation code for refference.
+
+4] This shows the counties with most parking tickets issued. So they have more parking violations. And we can clearly see that the NY is at the top. So We can clearly conclude from this that the more strict actions should be taken in the NY which was one of our aim from this project. Government can focus more on the states with this more violating states.
+
+5] This shows that which officer has issued more parking tickets. We can get the list of officers which are giving their best to stop the parking violations. Givernment can give awards to such officers to inspire other officers also.
+
+6] This shows that for each county which violation is happening most number of times. So that the officers can focus more on the perticular type of violations more.
+
+7] It considers a perticular vehicle body type as red if it has been issued a parking tickets in more than one month in a year other wise it shows green. So we can clearlly see that the red one is more than the green so most of the vehicle types are red zoned. This information may help officers to focus on a perticular vehicle types more rather than getting into all traffic.
+
+8] It considers a person red zoned if his vehicle is found to have issued tickets more than 30 times. Similarly orange zoned if tickets issued are more than 5 but less than 30. Other wise the person is green. Officers can really look into this ratio and make a more strict rules for the red zoned persons as they are continuously breaking the rules.
+
+9] The pie chart shows the vioalations happened in per state. We can clearly see that NY is way beyond all others. So it requires a more attention in comarison with other states. Also we can see the states with very less violation rate. So officers can use this data to check the systems or special rules in the perticular states with less violations.
+
+10] This bar chart shows the comparison between the violations happened in the top 5 states with most number of violations per year. We can see the changes from it and see that rules are good. But can be improved more.
+
+Clearly from the charts above we can see that I was aiming for the analysis in the motivation which are almost solved by this analysis but there are still some more things we can add in future.
+
+## Challenges
+1] Skew data: The data was not precise and accurate. As data was having so many null values and also years from after 2017 or before 2013 also. It impacts the performance of the analysis and reduces the accuracy. It was a bit difficult to get the relevant information from the dataset. The data was containing most of the relevant information and focusing on most of the irrelevant data. So apart from this fetting the relevant data was a challenging task for me. 
+
+2] Mis-matching data-types: the data-types of the data was not the same or incorrect. So schema auto-detection was not able to get the whole dara directly into the singlen table. So querying and adding the data to tables becomes tedious. So I created my schema manually to overcome this.
+
+3] Missing data: There were so many data values missing like UnRegistered Vehicle. Some years was having some columns completely null. 
+Also most of the data was missing so making analysis based in that was bit complex as it reduces the accuracy. I overcome this by considering the columns with values only. So I considered it as other for all necessary times.
+
+4] No imports for Data-studio: The Goggle's Data Studio was not allowing the java script UDFs which has imports. It was not handling the functions like array aggregator which was necessary sometimes. So I stored the results in other table and then queried that results again for the visualiation. It was a bit tedious as it takes more table creation. It could have been improved.
+
+## Future Work
+1] By using this data, the analysis which I made is pretty amazing. It almost answers all the questions I was aiming for but it can still be more precise and accurate if we get more data.
+2] Also the analysis of location was according to the states and counties which is a lot of help for the Government officers. But for police officers it will be really good if the locations are detailed like co-ordinates on Google Maps. It can be added in future which will be really helpfull for the officers.
+3] Also the analysis was on a superficial level. It can be more detailed if there is more data and more information about the officers working and what are their revieews about the work.
+
+## Why Big Query ? (🤔)
+Big Query provides really usefull features for such analysis. It also has a good set of optimzation features which is really needed ton handle the Big data.
+
+Some of those featurres which mainly attracts me towards Big Query are:
+1]BigQuery is hepful for calculating metrics/stats/aggregates over a big data.
+2]It has a really faster and user-friendly Web-UI which is easy to learn and use.
+3]Querying was really fun on BigQuery Web UI.
+4]Loading such amount of data to BigQuery is rather easier than others as there re many ways.
+5]More importantly, it is easy to integrate with the Google's Data Studio.
+6]Also we can get live data so, it is really amazing for visualization of streaming data.
+7]Mainly, it supports SQL which is easy and friendly for handling complex queries on data.
+8]It supports the UDFs , so it was easy for me to use the UDF in JS to have my complex works.
+
+## Query Execution Details
+
+
 
 ### Support or Contact
 
