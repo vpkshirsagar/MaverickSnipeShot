@@ -1,8 +1,6 @@
-## Welcome to New York City Parking Tickets Data Analysis and Conclusions
+# Welcome to New York City Parking Tickets Data Analysis and Conclusions
 
-You can use the [editor on GitHub](https://github.com/vpkshirsagar/MaverickSnipeShot/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-# 1.	Motivation:
+# 1.	Motivation
 500$ parking ticket issued...!! 🥵. If you’ve ever driven a car in New York City, you probably know the drill: The city’s free on-street parking gives a small, temporary benefit to a few lucky drivers. People tend to violate the parking rules creating big problems for everyone else. This unique dataset enlightens the causes and most frequent areas of parking breaches. If we care about cities and urban mobility, we really need to pay some attention to parking. If people are not parking correctly like taking place of two parking places for just one car, park in the handicapped reserved place. Without rationing, parking fills up due to illegal parking, double parking leading to traffic caused by parking search. Hence, parking has to be managed strictly by enforcing laws to prevent such problems. The outcome of the project will help the government plan for proper investment of resources and improve focus on regions where rate of parking violations is more and also concentrate on frequently occurring categories of violations. Also, we can ensure the Parking policy success from the analyzing the dataset further.
 1)Where the rate of traffic rule violation is more i.e. more need of strict actions need to be taken by the traffic police?
 	2)Which place is ideal in case of parking violations and no need of much attention as people are likely to follow all the rules? 
@@ -141,7 +139,7 @@ There are total of 10 charts or representations of different analysis I have mad
 
 Clearly from the charts above we can see that I was aiming for the analysis in the motivation which are almost solved by this analysis but there are still some more things we can add in future.
 
-## Challenges
+### Challenges
 1] Skew data: The data was not precise and accurate. As data was having so many null values and also years from after 2017 or before 2013 also. It impacts the performance of the analysis and reduces the accuracy. It was a bit difficult to get the relevant information from the dataset. The data was containing most of the relevant information and focusing on most of the irrelevant data. So apart from this fetting the relevant data was a challenging task for me. 
 
 2] Mis-matching data-types: the data-types of the data was not the same or incorrect. So schema auto-detection was not able to get the whole dara directly into the singlen table. So querying and adding the data to tables becomes tedious. So I created my schema manually to overcome this.
@@ -151,12 +149,12 @@ Also most of the data was missing so making analysis based in that was bit compl
 
 4] No imports for Data-studio: The Goggle's Data Studio was not allowing the java script UDFs which has imports. It was not handling the functions like array aggregator which was necessary sometimes. So I stored the results in other table and then queried that results again for the visualiation. It was a bit tedious as it takes more table creation. It could have been improved.
 
-## Future Work
+### Future Work
 1] By using this data, the analysis which I made is pretty amazing. It almost answers all the questions I was aiming for but it can still be more precise and accurate if we get more data.
 2] Also the analysis of location was according to the states and counties which is a lot of help for the Government officers. But for police officers it will be really good if the locations are detailed like co-ordinates on Google Maps. It can be added in future which will be really helpfull for the officers.
 3] Also the analysis was on a superficial level. It can be more detailed if there is more data and more information about the officers working and what are their revieews about the work.
 
-## Why Big Query ? (🤔)
+### Why Big Query ? (🤔)
 Big Query provides really usefull features for such analysis. It also has a good set of optimzation features which is really needed ton handle the Big data.
 
 Some of those featurres which mainly attracts me towards Big Query are:
@@ -169,7 +167,7 @@ Some of those featurres which mainly attracts me towards Big Query are:
 7]Mainly, it supports SQL which is easy and friendly for handling complex queries on data.
 8]It supports the UDFs , so it was easy for me to use the UDF in JS to have my complex works.
 
-## Query Execution Details
+### Query Execution Details
 
 Below is the execution details for some of the complex queries I used.
 
